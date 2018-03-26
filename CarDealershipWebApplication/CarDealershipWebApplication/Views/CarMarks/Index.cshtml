@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CarDealershipWebApplication.Models.CarMark>
+
+@{
+    ViewBag.Title = "Car Marks";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-5 col-lg-5 col-sm-5">
+            <h2>Car dealership</h2>
+            <select class="form-control" id="mark" name="Mark">
+                <option>Select Car Mark</option>
+                @foreach (var item in ViewBag.CarMarks)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+
+            <table class="table">
+                <thead>
+                    <tr class="h4">
+                        <th>
+                            @Html.DisplayNameFor(model => model.MarkName)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <h4 value="@item.CarMarkID">@Html.DisplayFor(modelItem => item.MarkName)</h4>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5 col-lg-6 col-sm-5">
+            <div>
+                <h3>Spare Parts</h3>
+                <br>
+                <br>
+            </div>
+            <table class="table" id="partList">
+                <thead>
+                    <tr class="h4">
+                        <th>Sparepart Name</th>
+                        <th>Sparepart Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.SpareParts)
+                    {
+                        <tr>
+                            <td>@item.SparePartName</td>
+                            <td>@item.SparePartCode</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#mark').click(function ()
+            {
+                var markId = $(this).val();
+                $.ajax(
+                    {
+                    type: 'GET',
+                    url: '@Url.Action("GetSpareParts")/' + markId,
+                    success: function (data)
+                        {
+                            $('#partList').replaceWith(data);
+                        }
+                    });
+            });
+        });
+    </script>
+}
+

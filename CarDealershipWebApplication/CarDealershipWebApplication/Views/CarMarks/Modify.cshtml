@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CarDealershipWebApplication.Models.CarMark>
+
+@{
+    ViewData["Title"] = "Modify";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-lg-5 col-sm-5">
+            <h2>Modify</h2>
+            <form>
+                <input type="text" id="NewMarkName" class="form-control" />
+                <input type="button" id="saveInput" value="Add new mark" class="btn btn-default" onclick="saveEntered()" />
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MarkName)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <p value="@item.CarMarkID">@Html.DisplayFor(modelItem => item.MarkName)</p>
+                            </td>
+                            <td>
+                                <form asp-action="Delete" asp-route-id="@item.CarMarkID">
+                                    <input type="hidden" asp-for="@item.CarMarkID" />
+                                    <input type="submit" value="Delete" class="btn btn-default" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5 col-lg-3 col-sm-5">
+            <div>
+                <h3>Spare Parts</h3>
+                <br>
+                <br>
+            </div>
+            <select class="form-control" id="mark" name="Mark">
+            <option>Select Car Mark</option>
+                @foreach (var item in ViewBag.CarMarks)
+        {
+            <option  value="@item.Value">@item.Text</option>
+}
+            </select>
+            <input type="text" id="NewSparePartName" placeholder="Enter new spare part name" class="form-control" />
+            <input type="text" id="NewSparePartCode" placeholder="Enter new spare part code" class="form-control" />
+            <input type="button" id="savePartInput" value="Add new part" class="btn btn-default" onclick="savePart()" />
+        </div>
+</div>
+</div>
+@section scripts
+    {
+    <script type="text/javascript">
+        function saveEntered() {
+            var markName = document.getElementById("NewMarkName").value;
+                var newMark = { MarkName: markName };
+                $.ajax(
+                    {
+                        type: 'POST',
+                        data: newMark,
+                        url: '@Url.Action("CreateMark")/',
+                });
+        }
+        function savePart() {
+            var id = $('#mark').val();
+            var name = document.getElementById("NewSparePartName").value;
+            var code = document.getElementById("NewSparePartCode").value;
+            var newPart = {
+                SparePartName: name,
+                SparePartCode: code };
+                $.ajax(
+                    {
+                        type: 'POST',
+                        data: newPart,
+                        url: '@Url.Action("AddPart")/' + id
+                });
+        }
+    </script>
+}
+

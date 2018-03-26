@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CarDealershipWebApplication.Models.SparePart>
+@{
+    Layout = null;
+}
+
+<table class="table" id="partList">
+    <thead>
+        <tr class="h4">
+            <th>Sparepart Name</th>
+            <th>Sparepart Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="h4">
+                <td>@item.SparePartName</td>
+                <td>@item.SparePartCode</td>
+            </tr>
+        }
+    </tbody>
+</table>

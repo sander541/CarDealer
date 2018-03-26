@@ -1,0 +1,10 @@
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\bin\Debug\netcoreapp2.0\CarDealershipWebApplication.deps.json
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\bin\Debug\netcoreapp2.0\CarDealershipWebApplication.runtimeconfig.json
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\bin\Debug\netcoreapp2.0\CarDealershipWebApplication.runtimeconfig.dev.json
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\bin\Debug\netcoreapp2.0\CarDealershipWebApplication.dll
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\bin\Debug\netcoreapp2.0\CarDealershipWebApplication.pdb
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\obj\Debug\netcoreapp2.0\CarDealershipWebApplication.csproj.CoreCompileInputs.cache
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\obj\Debug\netcoreapp2.0\CarDealershipWebApplication.AssemblyInfoInputs.cache
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\obj\Debug\netcoreapp2.0\CarDealershipWebApplication.AssemblyInfo.cs
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\obj\Debug\netcoreapp2.0\CarDealershipWebApplication.dll
+C:\Users\annul\source\repos\CarDealershipWebApplication\CarDealershipWebApplication\obj\Debug\netcoreapp2.0\CarDealershipWebApplication.pdb
